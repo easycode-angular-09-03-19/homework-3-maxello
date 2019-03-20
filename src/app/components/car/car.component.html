@@ -1,0 +1,25 @@
+<div class="container">
+    <h2 class="text-center">Это моя <span>{{carInfo.name}}</span></h2>
+
+    <h3>А это ее характеристики:</h3>
+    <ul>
+        <li *ngFor="let specification of carInfo.specifications">
+            {{ specification }}
+        </li>
+    </ul>
+
+    <h3>Невероятно, но она {{ carInfo.currentFuelCapacity > 0 ? "может" : "должна" }} ехать</h3>
+    <ul>
+        <li><b>Пробег: </b>{{ carInfo.mileage }}</li>
+        <li><b>Объем топливного бака: </b>{{ carInfo.fuelTankCapacity }}</li>
+        <li><b>Текущее кол-во топлива в баке: </b><span [ngClass]="{'error-clr': !carInfo.currentFuelCapacity}">{{ carInfo.currentFuelCapacity }}</span></li>
+    </ul>
+
+    <div *ngIf="carInfo.currentFuelCapacity > 0; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <button class="button button-success" (click)="drive(100)">Ехать</button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <button class="button button-warning" (click)="refuel()">Заправиться</button>
+    </ng-template>   
+</div>

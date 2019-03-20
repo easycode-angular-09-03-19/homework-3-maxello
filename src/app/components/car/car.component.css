@@ -1,0 +1,39 @@
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.text-center {
+    text-align: center;
+}
+.button {
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+.button:focus {
+    outline: 0;
+}
+.button-success {
+    background: #47d670;
+    color: #fff;
+    border: 1px solid #47d670;
+}
+.button-success:hover {
+    background: #fff;
+    color: #47d670;
+}
+.button-warning {
+    background: #ff9d74;
+    color: #fff;
+    border: 1px solid #ff9d74;
+}
+.button-warning:hover {
+    background: #fff;
+    color: #ff9d74;
+}
+.error-clr {
+    color: red;
+}
