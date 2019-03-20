@@ -13,7 +13,7 @@ export class CarComponent implements OnInit {
   ngOnInit() {
   }
 
-  public carInfo:Car = {
+  public carInfo: Car = {
     name: "Mazda",
     mileage: 120000,
     fuelTankCapacity: 60,
@@ -25,21 +25,21 @@ export class CarComponent implements OnInit {
       "Разгон до 100км/ч: 11.2c", 
       "Тип кузова: Седан" 
     ]
-  }
+  };
 
-  public drive(kilometers:number):void {
+  public drive(kilometers: number): void {
       if (this.carInfo.currentFuelCapacity > 0) {
-          if(this.carInfo.currentFuelCapacity < kilometers/this.carInfo.consumption){
-            this.carInfo.mileage += kilometers/this.carInfo.consumption * this.carInfo.currentFuelCapacity;
+          if(this.carInfo.currentFuelCapacity < kilometers / this.carInfo.consumption){
+            this.carInfo.mileage += kilometers / this.carInfo.consumption * this.carInfo.currentFuelCapacity;
             this.carInfo.currentFuelCapacity = 0;
           } else {
             this.carInfo.mileage += kilometers;
-            this.carInfo.currentFuelCapacity -= kilometers/this.carInfo.consumption;
+            this.carInfo.currentFuelCapacity -= kilometers / this.carInfo.consumption;
           }
       }
   }
 
-  public refuel(count:number):void {
-      this.carInfo.currentFuelCapacity += count;
+  public refuel(): void {
+      this.carInfo.currentFuelCapacity += this.carInfo.fuelTankCapacity;
   }
 }
